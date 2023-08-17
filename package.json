@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "db:init": "npx dotenv -- pnpm -r --filter database exec -- pnpm run db:push",
     "clean": "pnpm recursive exec -- rm -rf node_modules",
     "build": "turbo run build",
     "dev": "dotenv -- turbo run dev",
