@@ -1,0 +1,15 @@
+{
+  "extends": "tsconfig/base.json", // @todo
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "global.d.ts"],
+  "compilerOptions": {
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "strict": true
+  }
+}

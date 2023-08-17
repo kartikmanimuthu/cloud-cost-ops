@@ -1,8 +1,9 @@
 {
   "private": true,
   "scripts": {
+    "clean": "pnpm recursive exec -- rm -rf node_modules",
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "dotenv -- turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -14,5 +15,8 @@
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "cloud-cost-ops"
+  "name": "cloud-cost-ops",
+  "dependencies": {
+    "dotenv-cli": "^7.3.0"
+  }
 }
