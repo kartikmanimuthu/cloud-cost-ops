@@ -5,6 +5,8 @@
     "stop:supabase": "npx supabase stop",
     "db:generate": "npx dotenv -- pnpm -r --filter database exec -- pnpm run db:generate",
     "db:push": "npx dotenv -- pnpm -r --filter database exec -- pnpm run db:push",
+    "db:migrate": "npx dotenv -- pnpm -r --filter database exec -- prisma migrate dev",
+    "db:deploy": "npx dotenv -- pnpm -r --filter database exec -- prisma migrate deploy",
     "clean": "pnpm recursive exec -- rm -rf node_modules",
     "build": "turbo run build",
     "dev": "dotenv -- turbo run dev",

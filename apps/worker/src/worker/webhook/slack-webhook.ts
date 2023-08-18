@@ -20,7 +20,6 @@ const workerFunc: WorkerFunction<any, any> = async (job) => {
         const data = await new Promise<boolean>((resolve, _) => {
             setTimeout(() => {
                 resolve(true);
-                // _("custom error");
             }, 5000)
         })
 
@@ -53,8 +52,8 @@ const webhookHandler: WebhookHandler = async (dispatchJob, data) => {
 
 
 export const worker: IWebhookWorker = {
-    name: 'webhook-slack',
-    webhookRoute: '/webhook-slack',
+    name: 'slack-webhook',
+    webhookRoute: '/slack',
     webhookHandler,
     workerConf,
     queueConf,

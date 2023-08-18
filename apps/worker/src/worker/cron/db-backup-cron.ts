@@ -14,18 +14,15 @@ const workerConf: IWorkerOptions = {
 
 const cronConf: ICronOptions = {
     repeat: {
-        pattern: '*/2 * * * *',  // This cron expression represents every 5 minutes
+        pattern: '*/5 * * * *',  // This cron expression represents every 5 minutes
     },
     cronPayload: {
-        message: "cron trigged"
+        message: "Email Cron Triggered!"
     }
 }
 
 const workerFunc: WorkerFunction<any, any> = async (job) => {
     // do something 
-
-    console.log("data : ", job.data);
-
     // mock promise to stimulate async task 
     const data = await new Promise<boolean>((resolve, _) => {
         setTimeout(() => {
@@ -41,7 +38,7 @@ const workerFunc: WorkerFunction<any, any> = async (job) => {
 
 
 export const worker: ICronWorker = {
-    name: 'email-cron-job',
+    name: 'db-backup-cron',
     workerConf,
     queueConf,
     cronConf,

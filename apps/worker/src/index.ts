@@ -131,17 +131,3 @@ export const dispatchBulkJobs = async <T = unknown>(jobs: JobPayload[]) => {
     return Promise.all(promises);
 };
 
-
-
-// setTimeout(async () => {
-
-//     await dispatchJob({
-//         jobName: `tenant1-paytm-slack-job-${new Date().toISOString()}`,
-//         // jobId: `teanant-paytm-slack-job ${new Date().toTimeString()}`,
-//         queueName: "slack-job",
-//         data: "Hello World"
-//     });
-
-// }, 5000)
-
-

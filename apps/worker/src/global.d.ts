@@ -40,7 +40,8 @@ declare global {
 
     type WebhookHandlerResponse = {
         success: true,
-        data: any
+        message?: string,
+        data?: any
     }
 
     type WorkerFunction<T = any, K = any> = (job: Job<T>) => Promise<{ success: boolean, data: K }>;
