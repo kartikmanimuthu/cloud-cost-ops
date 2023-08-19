@@ -3,7 +3,7 @@ import { PrismaClient, Todo } from "database";
 const client = new PrismaClient();
 
 
-const workerFunc: WorkerFunction<Todo, any> = async ({ data: todoModel }) => {
+const workerFunction: WorkerFunction<Todo, any> = async ({ data: todoModel }) => {
     try {
 
         const resData = await client.todo.create({
@@ -20,10 +20,9 @@ const workerFunc: WorkerFunction<Todo, any> = async ({ data: todoModel }) => {
 }
 
 
-
 const webhookHandler: WebhookHandler = async (dispatchJob, data) => {
     try {
-        await dispatchJob(`webhook-todo-${new Date().getTime()}`, data);
+        await dispatchJob(`todo-webhook-${new Date().getTime()}`, data);
         return {
             success: true,
             message: "webhook todo added to the queue",
@@ -36,7 +35,7 @@ const webhookHandler: WebhookHandler = async (dispatchJob, data) => {
 };
 
 
-const queueConf: IQueueOptions = {
+const queueConfig: IQueueOptions = {
     defaultJobOptions: {
         priority: 1,
         delay: 8000,
@@ -44,7 +43,7 @@ const queueConf: IQueueOptions = {
     },
 };
 
-const workerConf: IWorkerOptions = {
+const workerConfig: IWorkerOptions = {
     concurrency: 5,
     lockDuration: 30000,
     lockRenewTime: 1000,
@@ -54,7 +53,7 @@ export const worker: IWebhookWorker = {
     name: 'todo-webhook',
     webhookRoute: '/todo',
     webhookHandler,
-    workerConf,
-    queueConf,
-    workerFunc,
+    workerConfig,
+    queueConfig,
+    workerFunction,
 };

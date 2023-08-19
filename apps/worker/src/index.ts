@@ -18,7 +18,7 @@ setupBullDashboard(workerPools);
 
 // Type Guard for ICronWorker
 function isCronWorker(worker: any): worker is ICronWorker {
-    return 'cronConf' in worker;
+    return 'cronConfig' in worker;
 }
 
 // Type Guard for IWebhookWorker
@@ -37,15 +37,15 @@ function initializeAllWorkers(workers: Array<IWorker | IWebhookWorker | ICronWor
     jobWorkers.forEach(w => {
         const { queue } = WorkerFactory({
             name: w.name,
-            queueConf: w.queueConf,
-            workerConf: w.workerConf,
-            workerFunc: w.workerFunc,
-            connectionConf: redisConfig,
+            queueConfig: w.queueConfig,
+            workerConfig: w.workerConfig,
+            workerFunction: w.workerFunction,
+            connectionConfig: redisConfig,
         });
         workerPools.push({
             queueName: w.name,
             queue,
-            jobOptions: w.queueConf,
+            jobOptions: w.queueConfig,
         });
     });
 
@@ -53,16 +53,16 @@ function initializeAllWorkers(workers: Array<IWorker | IWebhookWorker | ICronWor
     cronWorkers.forEach(w => {
         const { queue } = WorkerFactory({
             name: w.name,
-            queueConf: w.queueConf,
-            workerConf: w.workerConf,
-            workerFunc: w.workerFunc,
-            cronConf: w.cronConf,
-            connectionConf: redisConfig,
+            queueConfig: w.queueConfig,
+            workerConfig: w.workerConfig,
+            workerFunction: w.workerFunction,
+            cronConfig: w.cronConfig,
+            connectionConfig: redisConfig,
         });
         workerPools.push({
             queueName: w.name,
             queue,
-            jobOptions: w.queueConf,
+            jobOptions: w.queueConfig,
         });
     });
 
@@ -81,15 +81,15 @@ function initializeAllWorkers(workers: Array<IWorker | IWebhookWorker | ICronWor
     webhookWorkers.forEach(w => {
         const { queue } = WorkerFactory({
             name: w.name,
-            queueConf: w.queueConf,
-            workerConf: w.workerConf,
-            workerFunc: w.workerFunc,
-            connectionConf: redisConfig,
+            queueConfig: w.queueConfig,
+            workerConfig: w.workerConfig,
+            workerFunction: w.workerFunction,
+            connectionConfig: redisConfig,
         });
         router.post(w.webhookRoute, async (req, res) => {
             try {
                 const data = await w.webhookHandler(
-                    (name: string, data: unknown) => queue.add(name, data, w.queueConf.defaultJobOptions),
+                    (name: string, data: unknown) => queue.add(name, data, w.queueConfig.defaultJobOptions),
                     req.body
                 );
                 res.status(200).send(data);
@@ -101,7 +101,7 @@ function initializeAllWorkers(workers: Array<IWorker | IWebhookWorker | ICronWor
         workerPools.push({
             queueName: w.name,
             queue,
-            jobOptions: w.queueConf,
+            jobOptions: w.queueConfig,
         });
     });
 

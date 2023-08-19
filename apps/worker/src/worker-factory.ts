@@ -3,32 +3,32 @@ import { Queue, Worker, QueueEvents } from 'bullmq';
 export function WorkerFactory(worker: IWorker | ICronWorker) {
     const {
         name,
-        workerFunc,
-        connectionConf,
-        workerConf = {},
-        queueConf = {}
+        workerFunction,
+        connectionConfig,
+        workerConfig = {},
+        queueConfig = {}
     } = worker;
 
     const queue = new Queue(name, {
-        connection: connectionConf,
-        ...queueConf
+        connection: connectionConfig,
+        ...queueConfig
     });
 
-    const workerInstance = new Worker(name, workerFunc, {
-        connection: connectionConf,
-        ...workerConf
+    const workerInstance = new Worker(name, workerFunction, {
+        connection: connectionConfig,
+        ...workerConfig
     });
 
     const events = new QueueEvents(name, {
-        connection: connectionConf
+        connection: connectionConfig
     });
 
     // If worker is of type ICronWorker, add a repeating job with the cron configuration
-    if ('cronConf' in worker) {
-        const { cronConf } = worker;
-        queue.add(name, cronConf.cronPayload, {
-            ...queueConf,
-            ...cronConf
+    if ('cronConfig' in worker) {
+        const { cronConfig } = worker;
+        queue.add(name, cronConfig.cronPayload, {
+            ...queueConfig,
+            ...cronConfig
         });
     }
 
