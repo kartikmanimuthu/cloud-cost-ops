@@ -38,7 +38,15 @@ start:supabase
 
 For a deeper dive into local development with Supabase, refer to the [official Supabase documentation](https://supabase.com/docs/guides/cli/local-development).
 
-### 4. Generate Prisma Client
+### 4. Sync Database Schema
+
+Ensure your database schema matches the Prisma schema:
+
+```bash
+pnpm db:deploy
+```
+
+### 5. Generate Prisma Client
 
 Generate the Prisma Client, which provides CRUD operations for the models defined in your schema:
 
@@ -48,20 +56,12 @@ pnpm db:generate
 
 This command populates the `node_modules/@prisma/client` directory with the generated client.
 
-### 5. Sync Database Schema
-
-Ensure your database schema matches the Prisma schema:
-
-```bash
-pnpm db:push
-```
-
 ### 6. Start the Development Server
 
 Kick off the development server:
 
 ```bash
-pnpm run dev
+pnpm dev
 ```
 
 ### 7. Run Specific Workspace (Webapp)
@@ -69,7 +69,7 @@ pnpm run dev
 To run only the webapp portion of the workspace:
 
 ```bash
-pnpm run dev --filter webapp
+pnpm dev --filter webapp
 ```
 
 ## 📚 Additional Resources
