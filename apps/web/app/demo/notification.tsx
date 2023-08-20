@@ -4,6 +4,7 @@ import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 
 export default function notification() {
   const { toast } = useToast();
@@ -21,6 +22,11 @@ export default function notification() {
         >
           Show Toast
         </Button>
+      </div>
+      <div>
+        <div>
+          <Progress value={33} />
+        </div>
       </div>
     </>
   );
