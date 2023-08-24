@@ -1,18 +1,11 @@
+import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
-import NotificationImportantOutlinedIcon from "@mui/icons-material/NotificationImportantOutlined";
-import TaskOutlinedIcon from "@mui/icons-material/TaskOutlined";
-import RequestQuoteOutlinedIcon from "@mui/icons-material/RequestQuoteOutlined";
-import PhotoSizeSelectSmallOutlinedIcon from "@mui/icons-material/PhotoSizeSelectSmallOutlined";
-import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
-import CloudDoneOutlinedIcon from "@mui/icons-material/CloudDoneOutlined";
-import Link from "next/link";
+import { Icons } from "@/components/icons";
 
-export function Sidebar({ className, playlists }) {
+export function Sidebar({ className }) {
   return (
     <div className={cn("pb-12", className)}>
       <div className="space-y-4 py-4 flex flex-col justify-between">
@@ -22,17 +15,19 @@ export function Sidebar({ className, playlists }) {
               Overview
             </h2>
             <div className="space-y-1">
-              <Button variant="secondary" className="w-full justify-start">
-                <Link href="/dashboard">
-                  <DashboardOutlinedIcon sx={{ paddingRight: "8px" }} />
-                  Dashboard
-                </Link>
+              <Button
+                variant="secondary"
+                className="w-full justify-start font-normal space-x-1"
+              >
+                <Icons.dashboard className="w-6 h-6" />
+                <Link href="/dashboard">Dashboard</Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start">
-                <NotificationImportantOutlinedIcon
-                  sx={{ paddingRight: "8px" }}
-                />
-                Alerts
+              <Button
+                variant="ghost"
+                className="w-full justify-start font-normal space-x-1"
+              >
+                <Icons.alert className="w-6 h-6" />
+                <Link href="/alert">Alerts</Link>
               </Button>
             </div>
           </div>
@@ -41,25 +36,26 @@ export function Sidebar({ className, playlists }) {
               Cloud Analyzer
             </h2>
             <div className="space-y-1">
-              <Button variant="ghost" className="w-full justify-start">
-                <Link href="/dashboard">
-                  <RequestQuoteOutlinedIcon sx={{ paddingRight: "8px" }} />
-                  Cost Insights
-                </Link>
+              <Button
+                variant="ghost"
+                className="w-full justify-start font-normal space-x-1"
+              >
+                <Icons.costExplorer className="w-6 h-6" />
+                <Link href="/dashboard">Cost Insights</Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start">
-                <Link href="/right-sizing">
-                  <PhotoSizeSelectSmallOutlinedIcon
-                    sx={{ paddingRight: "8px" }}
-                  />
-                  Right Sizing
-                </Link>
+              <Button
+                variant="ghost"
+                className="w-full justify-start font-normal space-x-1"
+              >
+                <Icons.rightSizing className="w-6 h-6"></Icons.rightSizing>
+                <Link href="/right-sizing">Right Sizing</Link>
               </Button>
-              <Button variant="ghost" className="w-full justify-start">
-                <Link href="/auto-schedular">
-                  <PrivacyTipOutlinedIcon sx={{ paddingRight: "8px" }} />
-                  Auto Schedular
-                </Link>
+              <Button
+                variant="ghost"
+                className="w-full justify-start font-normal space-x-1"
+              >
+                <Icons.schedular className="w-6 h-6" />
+                <Link href="/auto-schedular">Auto Schedular</Link>
               </Button>
             </div>
           </div>
@@ -73,27 +69,25 @@ export function Sidebar({ className, playlists }) {
             <div className="space-y-1 p-2">
               <Button
                 variant="ghost"
-                className="w-full justify-start font-normal"
+                className="w-full justify-start font-normal space-x-1"
               >
-                <Link href="/integration">
-                  <AccountCircleOutlinedIcon sx={{ paddingRight: "8px" }} />
-                  Integration
-                </Link>
+                <Icons.integration className="w-6 h-6" />
+                <Link href="/integration">Integration</Link>
               </Button>
 
               <Button
                 variant="ghost"
-                className="w-full justify-start font-normal"
+                className="w-full justify-start font-normal space-x-1"
               >
-                <AccountCircleOutlinedIcon sx={{ paddingRight: "8px" }} />
-                Profile
+                <Icons.user className="w-6 h-6" />
+                <Link href="/profile">Profile</Link>
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start font-normal"
+                className="w-full justify-start font-normal space-x-1"
               >
-                <ManageAccountsOutlinedIcon sx={{ paddingRight: "8px" }} />
-                Settings
+                <Icons.setting className="w-6 h-6" />
+                <Link href="/setting">Settings</Link>
               </Button>
             </div>
           </ScrollArea>
