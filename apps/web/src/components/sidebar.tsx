@@ -10,6 +10,7 @@ import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import ManageAccountsOutlinedIcon from "@mui/icons-material/ManageAccountsOutlined";
 import CloudDoneOutlinedIcon from "@mui/icons-material/CloudDoneOutlined";
+import Link from "next/link";
 
 export function Sidebar({ className, playlists }) {
   return (
@@ -23,7 +24,7 @@ export function Sidebar({ className, playlists }) {
             <div className="space-y-1">
               <Button variant="secondary" className="w-full justify-start">
                 <DashboardOutlinedIcon sx={{ paddingRight: "8px" }} />
-                Dashboard
+                <Link href="/dashboard">Dashboard</Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start">
                 <NotificationImportantOutlinedIcon
@@ -31,31 +32,27 @@ export function Sidebar({ className, playlists }) {
                 />
                 Alerts
               </Button>
-              <Button variant="ghost" className="w-full justify-start">
-                <TaskOutlinedIcon sx={{ paddingRight: "8px" }} />
-                Tasks
-              </Button>
             </div>
           </div>
           <div className="px-3 py-2">
             <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
-              {/* <CloudDoneOutlinedIcon sx={{ marginRight: "8px" }} /> */}
               Cloud Analyzer
             </h2>
             <div className="space-y-1">
               <Button variant="ghost" className="w-full justify-start">
                 <RequestQuoteOutlinedIcon sx={{ paddingRight: "8px" }} />
-                Cost Analysis
+                <Link href="/dashboard">Cost Insights</Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start">
                 <PhotoSizeSelectSmallOutlinedIcon
                   sx={{ paddingRight: "8px" }}
                 />
-                Right Sizing
+                <Link href="/right-sizing">Right Sizing</Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start">
                 <PrivacyTipOutlinedIcon sx={{ paddingRight: "8px" }} />
-                Security Risks
+
+                <Link href="/auto-schedular">Auto Schedular</Link>
               </Button>
             </div>
           </div>
@@ -67,6 +64,14 @@ export function Sidebar({ className, playlists }) {
           </h2>
           <ScrollArea className="h-[300px] px-1">
             <div className="space-y-1 p-2">
+              <Button
+                variant="ghost"
+                className="w-full justify-start font-normal"
+              >
+                <AccountCircleOutlinedIcon sx={{ paddingRight: "8px" }} />
+                <Link href="/integration">Integration</Link>
+              </Button>
+
               <Button
                 variant="ghost"
                 className="w-full justify-start font-normal"
