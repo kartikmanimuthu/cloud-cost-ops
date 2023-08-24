@@ -1,9 +1,11 @@
 "use client"; // Error components must be Client Components
 
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-background">
       <div className="bg-card p-6 rounded-lg shadow-lg w-96 border border-border">
@@ -15,9 +17,9 @@ export default function NotFound() {
         </p>
         <Button
           className="bg-primary text-primary-foreground px-4 py-2 rounded transition hover:bg-secondary hover:text-secondary-foreground"
-          onClick={() => {
-            window.history.back();
-          }}
+          onClick={() =>
+            router.push("/dashboard", { forceOptimisticNavigation: true })
+          }
         >
           Return Home
         </Button>
