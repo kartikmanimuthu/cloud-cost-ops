@@ -23,8 +23,10 @@ export function Sidebar({ className, playlists }) {
             </h2>
             <div className="space-y-1">
               <Button variant="secondary" className="w-full justify-start">
-                <DashboardOutlinedIcon sx={{ paddingRight: "8px" }} />
-                <Link href="/dashboard">Dashboard</Link>
+                <Link href="/dashboard">
+                  <DashboardOutlinedIcon sx={{ paddingRight: "8px" }} />
+                  Dashboard
+                </Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start">
                 <NotificationImportantOutlinedIcon
@@ -40,19 +42,24 @@ export function Sidebar({ className, playlists }) {
             </h2>
             <div className="space-y-1">
               <Button variant="ghost" className="w-full justify-start">
-                <RequestQuoteOutlinedIcon sx={{ paddingRight: "8px" }} />
-                <Link href="/dashboard">Cost Insights</Link>
+                <Link href="/dashboard">
+                  <RequestQuoteOutlinedIcon sx={{ paddingRight: "8px" }} />
+                  Cost Insights
+                </Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start">
-                <PhotoSizeSelectSmallOutlinedIcon
-                  sx={{ paddingRight: "8px" }}
-                />
-                <Link href="/right-sizing">Right Sizing</Link>
+                <Link href="/right-sizing">
+                  <PhotoSizeSelectSmallOutlinedIcon
+                    sx={{ paddingRight: "8px" }}
+                  />
+                  Right Sizing
+                </Link>
               </Button>
               <Button variant="ghost" className="w-full justify-start">
-                <PrivacyTipOutlinedIcon sx={{ paddingRight: "8px" }} />
-
-                <Link href="/auto-schedular">Auto Schedular</Link>
+                <Link href="/auto-schedular">
+                  <PrivacyTipOutlinedIcon sx={{ paddingRight: "8px" }} />
+                  Auto Schedular
+                </Link>
               </Button>
             </div>
           </div>
@@ -68,8 +75,10 @@ export function Sidebar({ className, playlists }) {
                 variant="ghost"
                 className="w-full justify-start font-normal"
               >
-                <AccountCircleOutlinedIcon sx={{ paddingRight: "8px" }} />
-                <Link href="/integration">Integration</Link>
+                <Link href="/integration">
+                  <AccountCircleOutlinedIcon sx={{ paddingRight: "8px" }} />
+                  Integration
+                </Link>
               </Button>
 
               <Button

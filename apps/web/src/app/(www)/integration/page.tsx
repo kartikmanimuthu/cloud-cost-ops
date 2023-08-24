@@ -1,4 +1,10 @@
-export default function Page() {
+const getData = async () => {
+  return new Promise((resolve, reject) => setTimeout(reject, 5000));
+};
+
+export default async function Page() {
+  await getData();
+
   return (
     <>
       <div className="col-span-3 lg:col-span-4 ">
