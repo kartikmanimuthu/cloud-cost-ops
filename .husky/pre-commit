@@ -1,8 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx lint-staged
+# @todo need to integrate
+# npx lint-staged
 
 # pnpm run test
-# pnpm run format
-# pnpm run lint
+pnpm run format
+pnpm run lint
+git add .
