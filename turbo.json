@@ -11,6 +11,13 @@
         ".env.production",
         ".env"
       ],
+      "env": [
+        "BULL_DASHBOARD_PORT",
+        "API_KEY",
+        "REDIS_HOST",
+        "REDIS_PORT",
+        "WEBHOOK_PORT"
+      ],
       "dependsOn": [
         "^build",
         "^db:generate"

@@ -13,7 +13,8 @@ export default function NotFound() {
           404 - Page Not Found
         </h2>
         <p className="text-gray-600 mb-6 text-card-foreground">
-          Sorry, the page you are looking for doesn't exist or has been moved.
+          Sorry, the page you are looking for doesn&apos;t exist or has been
+          moved.
         </p>
         <Button
           className="bg-primary text-primary-foreground px-4 py-2 rounded transition hover:bg-secondary hover:text-secondary-foreground"
