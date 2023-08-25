@@ -11,18 +11,37 @@
     "build": "turbo run build",
     "dev": "dotenv -- turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/cz-commitlint": "^17.7.1",
     "@turbo/gen": "^1.9.7",
+    "commitizen": "^4.3.0",
+    "dotenv-cli": "^7.3.0",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10",
   "name": "cloud-cost-ops",
-  "dependencies": {
-    "dotenv-cli": "^7.3.0"
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --config ./.prettierrc.js --write"
+    ],
+    "**/*.{css,scss,md,html,json}": [
+      "prettier --config ./.prettierrc.js --write"
+    ]
   }
 }
