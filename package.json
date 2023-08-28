@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "start:supabase": "npx supabase start",
-    "stop:supabase": "npx supabase stop --no-backup",
+    "stop:supabase": "npx supabase stop",
+    "purge:supabase": "npx supabase stop --no-backup",
     "db:generate": "npx dotenv -- pnpm -r --filter database exec -- pnpm run db:generate",
     "db:migrate": "npx dotenv -- pnpm -r --filter database exec -- pnpm run db:migrate",
     "db:deploy": "npx dotenv -- pnpm -r --filter database exec -- pnpm run db:deploy",
